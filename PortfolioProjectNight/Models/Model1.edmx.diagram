@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="75da055dbbe44307b5595ee50413d6a2" Name="Diagram1">
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.About" Width="1.5" PointX="0.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.Category" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.Contact" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.Education" Width="1.5" PointX="2.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.Experience" Width="1.5" PointX="4.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.Profile" Width="1.5" PointX="5.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.Service" Width="1.5" PointX="6.625" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.Skills" Width="1.5" PointX="10.625" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.SocialMedia" Width="1.5" PointX="7.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.sysdiagrams" Width="1.5" PointX="12.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.Expertise" Width="1.5" PointX="9.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.Feature" Width="1.5" PointX="8.625" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="DbMyPortfolioNightModel.FK_Contact_Category" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

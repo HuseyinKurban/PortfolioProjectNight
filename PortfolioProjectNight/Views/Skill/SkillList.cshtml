@@ -1,0 +1,32 @@
+﻿@model List<PortfolioProjectNight.Models.Skills>
+
+@{
+    ViewBag.Title = "SkillList";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Yetenek Listesi ve İşlemleri</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Başlık</th>
+        <th>Değer</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SkillsId</td>
+            <td>@item.SkillsName</td>
+            <td>@item.Rate</td>
+            <td><a href="/Skill/DeleteSkill/@item.SkillsId" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Skill/UpdateSkill/@item.SkillsId" class="btn btn-success">Güncelle</a></td>
+        </tr>
+
+    }
+
+</table>
+<a href="/Skill/CreateSkill/" class="btn btn-info">Yeni Yetenek Girişi</a>
