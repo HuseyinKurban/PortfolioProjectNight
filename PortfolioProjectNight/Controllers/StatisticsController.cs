@@ -12,7 +12,6 @@ namespace PortfolioProjectNight.Controllers
         public ActionResult Index()
         {
             return View();
-
         }
     }
 }
