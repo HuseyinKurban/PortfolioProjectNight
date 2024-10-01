@@ -18,6 +18,7 @@
         <EntityTypeShape EntityType="DbMyPortfolioNightModel.Expertise" Width="1.5" PointX="9.875" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DbMyPortfolioNightModel.Feature" Width="1.5" PointX="8.625" PointY="3.875" IsExpanded="true" />
         <AssociationConnector Association="DbMyPortfolioNightModel.FK_Contact_Category" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.Admin" Width="1.5" PointX="12.625" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
