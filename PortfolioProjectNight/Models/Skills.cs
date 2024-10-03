@@ -17,5 +17,7 @@ namespace PortfolioProjectNight.Models
         public int SkillsId { get; set; }
         public string SkillsName { get; set; }
         public Nullable<byte> Rate { get; set; }
+        public string Icon { get; set; }
+        public Nullable<bool> Status { get; set; }
     }
 }
