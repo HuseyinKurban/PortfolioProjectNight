@@ -6,39 +6,104 @@
     int count = 0;
 }
 
+
 <table class="table table-bordered">
     <tr>
         <th>#</th>
+        <th>Kategori</th>
         <th>Gönderen</th>
-        <th>Tarih</th>
+        <th>Email</th>
         <th>Konu</th>
+        <th>Mesaj</th>
+        <th>Tarih</th>
         <th>Durum</th>
-        <th>Mesajı Aç</th>
-        <th>Mesajı Sil</th>
+        <th>İşlemler</th>
     </tr>
 
     @foreach (var item in Model)
     {
         count++;
 
+
+        string badgeClass = "";
+        switch (item.Category.CategoryName)
+        {
+
+
+            case "Teşekkür":
+                badgeClass = "badge bg-info"; // Hafif mavi, minnet ve teşekkür için yumuşak bir ton
+                break;
+            case "Öneri":
+                badgeClass = "badge bg-success"; // Yeşil, öneri ve olumlu geribildirim için uygun
+                break;
+            case "Proje Talebi":
+                badgeClass = "badge bg-primary"; // Mavi, resmi ve iş odaklı talepler için ideal
+                break;
+            case "Referans":
+                badgeClass = "badge bg-warning"; // Sarı, dikkat çekici ama nötr
+                break;
+            case "Toplantı":
+                badgeClass = "badge bg-secondary"; // Gri tonları, toplantılar için daha sade bir görünüm
+                break;
+            case "Görüşme":
+                badgeClass = "badge bg-danger"; // Kırmızı, dikkat çekici ve görüşmeye uygun
+                break;
+            case "Reklam":
+                badgeClass = "badge bg-danger"; // Kırmızı, dikkat çekici ve reklama uygun
+                break;
+            case "Diğer":
+                badgeClass = "badge bg-dark"; // Koyu ton, çeşitli ve bilinmeyen durumlar için
+                break;
+            default:
+                badgeClass = "badge bg-dark"; // Nötr bir ton, genel durumlar için
+                break;
+        }
+
+
+
         <tr>
             <td>@count</td>
+            <td><span class="@badgeClass p-2" style="color:white; font-size: small">@item.Category.CategoryName</span></td>
             <td>@item.NameSurname</td>
-            <td>@item.SendDate</td>
+            <td>@item.Email</td>
             <td>@item.Subject</td>
+            <
+            <td>
+                @if (!string.IsNullOrEmpty(item.Message) && item.Message.Length > 30)
+                {
+                    @item.Message.Substring(0, 30)
+                }
+                else
+                {
+                    @item.Message
+                }
+            </td>
 
-            @if (item.IsRead == false)
-            {
-                <td><a href="/Message/ChangeMessageStatusToTrue/@item.ContactId" class="btn btn-info">Okundu Olarak İşaretle</a></td>
-            }
-            else
-            {
-                <td><a href="/Message/ChangeMessageStatusToFalse/@item.ContactId" class="btn btn-dark">Okunmadı Olarak İşaretle</a></td>
-            }
+            <td>@item.SendDate.Value.ToString("dd.MM.yyyy HH:mm")</td>
+            <td>
 
-            <td><a href="#" class="btn btn-warning">Mesajı Aç</a></td>
-            <td><a href="#" class="btn btn-danger">Mesajı Sil</a></td>
+
+                @if (item.IsRead == true)
+                {
+                    <span class="badge badge-success p-2">Okundu</span>
+                }
+                else
+                {
+                    <span class="badge badge-danger p-2">Okunmadı</span>
+                }
+            </td>
+            <td>
+                @if (item.IsRead == false)
+                {
+                    <a href="/Message/ChangeMessageStatusToTrue/@item.ContactId" class="btn btn-info">Okundu Olarak İşaretle</a>
+                }
+                else
+                {
+                    <a href="/Message/ChangeMessageStatusToFalse/@item.ContactId" class="btn btn-dark">Okunmadı Olarak İşaretle</a>
+                }
+                <a href="/Message/MessageDetail/@item.ContactId" class="btn btn-warning">Mesajı Aç</a>
+                <a href="/Message/DeleteMessage/@item.ContactId" class="btn btn-danger">Mesajı Sil</a>
+            </td>
         </tr>
     }
-
 </table>

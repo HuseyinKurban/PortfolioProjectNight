@@ -1,44 +1,33 @@
-﻿
+﻿﻿@model List<PortfolioProjectNight.Models.Category>
+
 @{
-    Layout = null;
+    ViewBag.Title = "CategoryList";
+    Layout = "~/Views/Admin/Index.cshtml";
 }
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
-<div class="container">
-    <br /><br />
+<h2 class="mb-4">Kategori Listesi ve İşlemleri</h2>
 
-          <table class="table table-bordered">
+<a href="/Category/CreateCategory/" class="btn btn-info">Yeni Kategori Ekleme</a>
 
-              <tr>
-                  <th>Kategori Id</th>
-                  <th>Kategori Adı</th>
-                  <th>Kategori Durum</th>
-                  <th>Detaylar</th>
-              </tr>
+<br />
+<br />
 
-              <tr>
-                  <td>1</td>
-                  <td>Sebze Meyve</td>
-                  <td>Aktif</td>
-                  <td><button class="btn btn-primary"></button></td>
-              </tr>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Kategori</th>
+        <th>İşlemler</th>
+    </tr>
 
-              <tr>
-                  <td>2</td>
-                  <td>İçecek</td>
-                  <td>Aktif</td>
-                  <td><button class="btn btn-primary"></button></td>
-              </tr>
-
-              <tr>
-                  <td>3</td>
-                  <td>Tatlılar</td>
-                  <td>Aktif</td>
-                  <td><button class="btn btn-primary"></button></td>
-              </tr>
-
-
-
-          </table>
-</div>
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>@item.CategoryId</th>
+            <td>@item.CategoryName</td>
+            <td>
+                <a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-warning">Güncelle</a>
+                <a href="/Category/DeleteCategory/@item.CategoryId" class="btn btn-danger">Sil</a>
+            </td>
+        </tr>
+    }
+</table>

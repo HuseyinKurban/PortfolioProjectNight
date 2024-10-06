@@ -38,7 +38,7 @@
           <Property Name="Email" Type="nvarchar" MaxLength="50" />
           <Property Name="Subject" Type="nvarchar" MaxLength="50" />
           <Property Name="Message" Type="nvarchar" MaxLength="1000" />
-          <Property Name="SendDate" Type="date" />
+          <Property Name="SendDate" Type="datetime" />
           <Property Name="IsRead" Type="bit" />
           <Property Name="CategoryId" Type="int" />
         </EntityType>
@@ -209,7 +209,7 @@ warning 6002: The table/view 'DbMyPortfolioNight.dbo.Feature' does not have a pr
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Message" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="SendDate" Type="DateTime" Precision="0" />
+          <Property Name="SendDate" Type="DateTime" Precision="3" />
           <Property Name="IsRead" Type="Boolean" />
           <Property Name="CategoryId" Type="Int32" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Contact_Category" FromRole="Contact" ToRole="Category" />

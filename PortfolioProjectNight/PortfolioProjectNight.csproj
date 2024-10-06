@@ -480,6 +480,7 @@
     <Content Include="Content\Pigra-1.0.0\scss\bootstrap\scss\_type.scss" />
     <Content Include="Content\Pigra-1.0.0\scss\bootstrap\scss\_utilities.scss" />
     <Content Include="Content\Pigra-1.0.0\scss\bootstrap\scss\_variables.scss" />
+    <Content Include="Files\Hüseyin_Kurban_CV_Özgeçmiş.pdf" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />
@@ -506,7 +507,6 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Category\CategoryList.cshtml" />
-    <Content Include="Views\Category\CreeateCategory.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\PartialHead.cshtml" />
     <Content Include="Views\Admin\PartialSideBar.cshtml" />
@@ -531,6 +531,12 @@
     <Content Include="Views\Default\PartialExperience.cshtml" />
     <Content Include="Views\Default\PartialSkill.cshtml" />
     <Content Include="Views\Contact\PartialContactSidebar.cshtml" />
+    <Content Include="Views\Contact\PartialContactDetail.cshtml" />
+    <Content Include="Views\Contact\PartialContactLocation.cshtml" />
+    <Content Include="Views\Default\PartialFooter.cshtml" />
+    <Content Include="Views\Category\UpdateCategory.cshtml" />
+    <Content Include="Views\Category\CreateCategory.cshtml" />
+    <Content Include="Views\Message\MessageDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

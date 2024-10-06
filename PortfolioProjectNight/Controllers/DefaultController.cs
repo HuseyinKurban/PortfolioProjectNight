@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using PortfolioProjectNight.Models;
 
 namespace PortfolioProjectNight.Controllers
@@ -13,7 +14,27 @@ namespace PortfolioProjectNight.Controllers
 
         public ActionResult Index()
         {
+            List<SelectListItem> values=(from x in context.Category.ToList()
+                                         select new SelectListItem
+                                         {
+                                             Text=x.CategoryName,
+                                             Value=x.CategoryId.ToString()
+                                         }).ToList();
+
+            ViewBag.v=values;
+            
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(Contact contact)
+        {
+            contact.SendDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            contact.IsRead = false;
+
+            context.Contact.Add(contact);
+            context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         public PartialViewResult PartialHead()
@@ -60,6 +81,11 @@ namespace PortfolioProjectNight.Controllers
         {
             var values =context.Skills.Where(x=>x.Status==true).ToList();
             return PartialView(values);
+        }
+
+        public PartialViewResult PartialFooter()
+        {
+            return PartialView();
         }
     }
 }
