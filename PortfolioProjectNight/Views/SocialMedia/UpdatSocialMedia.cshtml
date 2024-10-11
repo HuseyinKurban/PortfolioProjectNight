@@ -1,0 +1,40 @@
+﻿@model PortfolioProjectNight.Models.SocialMedia
+@{
+    ViewBag.Title = "UpdatSocialMedia";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class="mb-4">Sosyal Medya Güncelleme Sayfası</h2>
+
+@using (Html.BeginForm("UpdatSocialMedia", "SocialMedia", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.SocialMediaId, "Sosyal Medya ID")
+        @Html.TextBoxFor(x => x.SocialMediaId, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Title, "Başlık")
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Icon, "İcon")
+        @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Status, "Durum")
+        @Html.DropDownListFor(x => x.Status, new List<SelectListItem>
+        {
+            new SelectListItem { Text = "Aktif", Value = "true" },
+            new SelectListItem { Text = "Pasif", Value = "false" }
+        }, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Url, "Url")
+        @Html.TextBoxFor(x => x.Url, new { @class = "form-control" })
+
+
+
+    </div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+
+    </div>
+}
+
+

@@ -1,0 +1,23 @@
+﻿@model PortfolioProjectNight.Models.Testimonial
+@{
+    ViewBag.Title = "CreateTestimonial";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<form method="post">
+
+    @Html.HiddenFor(x => x.TestimonialID, new { @class = "form-control" })
+    <label>Ad</label>
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    <label>Başlık</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <label>Yorum</label>
+    @Html.TextAreaFor(x => x.Comment, 6, 0, new { @class = "form-control" })
+    <br />
+    <label>Fotoğraf</label>
+    @Html.TextBoxFor(x => x.ImageUrl,  new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Ekle</button>
+</form>

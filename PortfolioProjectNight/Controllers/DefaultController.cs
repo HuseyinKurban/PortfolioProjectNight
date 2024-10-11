@@ -77,15 +77,53 @@ namespace PortfolioProjectNight.Controllers
             return PartialView(values);
         }
 
+        public PartialViewResult PartialEducation()
+        {
+            var values = context.Education.ToList();
+            return PartialView(values);
+        }
+
         public PartialViewResult PartialSkill()
         {
             var values =context.Skills.Where(x=>x.Status==true).ToList();
             return PartialView(values);
         }
 
-        public PartialViewResult PartialFooter()
+        public PartialViewResult PartialService()
         {
-            return PartialView();
+            var values = context.Service.ToList();
+            return PartialView(values);
         }
+
+        public PartialViewResult PartialPortfolio()
+        {
+            var values=context.Work.ToList();
+            return PartialView(values);
+        }
+
+        public PartialViewResult PartialTestimonial()
+        {
+            var values = context.Testimonial.ToList();
+            return PartialView(values);
+        }
+
+        public PartialViewResult PartialFooterAndSocialMedia()
+        {
+            var values = context.SocialMedia.Where(x => x.Status == true).ToList();
+            return PartialView(values);
+        }
+
+        public PartialViewResult PartialHeaderSocialMedia()
+        {
+            var values = context.SocialMedia.Where(x => x.Status == true).ToList();
+            return PartialView(values);
+        }
+
+        public PartialViewResult PartialSocialMedia()
+        {
+            var values = context.SocialMedia.Where(x => x.Status == true).ToList();
+            return PartialView(values);
+        }
+
     }
 }

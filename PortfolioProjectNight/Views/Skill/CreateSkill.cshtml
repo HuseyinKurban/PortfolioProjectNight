@@ -1,4 +1,4 @@
-﻿
+﻿@model PortfolioProjectNight.Models.Skills
 @{
     ViewBag.Title = "CreateSkill";
     Layout = "~/Views/Admin/Index.cshtml";
@@ -8,10 +8,20 @@
 
 <form method="post">
     <label>Yetenek Başlığı</label>
-    <input type="text" name="SkillsName" class="form-control" />
+    @Html.TextBoxFor(x => x.SkillsName, new { @class = "form-control" })
     <br />
     <label>Yetenek Değeri</label>
-    <input type="number" name="Rate" class="form-control" />
+    @Html.TextBoxFor(x => x.Rate, new { @class = "form-control" })
+    <br />
+    <label>Icon</label>
+    @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Status, "Durum")
+    @Html.DropDownListFor(x => x.Status, new List<SelectListItem>
+    {
+        new SelectListItem { Text = "Aktif", Value = "true" },
+        new SelectListItem { Text = "Pasif", Value = "false" }
+    }, new { @class = "form-control" })
     <br />
     <button class="btn btn-info">Yeteneği Ekle</button>
 

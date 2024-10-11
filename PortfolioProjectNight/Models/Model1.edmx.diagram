@@ -10,15 +10,17 @@
         <EntityTypeShape EntityType="DbMyPortfolioNightModel.Contact" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DbMyPortfolioNightModel.Education" Width="1.5" PointX="2.75" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DbMyPortfolioNightModel.Experience" Width="1.5" PointX="4.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbMyPortfolioNightModel.Profile" Width="1.5" PointX="5.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.Profile" Width="1.5" PointX="5.25" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DbMyPortfolioNightModel.Service" Width="1.5" PointX="6.625" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="DbMyPortfolioNightModel.Skills" Width="1.5" PointX="10.625" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbMyPortfolioNightModel.SocialMedia" Width="1.5" PointX="7.75" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbMyPortfolioNightModel.sysdiagrams" Width="1.5" PointX="12.125" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DbMyPortfolioNightModel.Expertise" Width="1.5" PointX="9.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.sysdiagrams" Width="1.5" PointX="14.875" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.Expertise" Width="1.5" PointX="9.125" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DbMyPortfolioNightModel.Feature" Width="1.5" PointX="8.625" PointY="3.875" IsExpanded="true" />
         <AssociationConnector Association="DbMyPortfolioNightModel.FK_Contact_Category" ManuallyRouted="false" />
         <EntityTypeShape EntityType="DbMyPortfolioNightModel.Admin" Width="1.5" PointX="12.625" PointY="3.75" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.SocialMedia" Width="1.5" PointX="7" PointY="0.5" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.Work" Width="1.5" PointX="11" PointY="0.625" />
+        <EntityTypeShape EntityType="DbMyPortfolioNightModel.Testimonial" Width="1.5" PointX="12.875" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

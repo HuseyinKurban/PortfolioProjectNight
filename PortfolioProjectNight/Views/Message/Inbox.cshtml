@@ -10,9 +10,9 @@
 <table class="table table-bordered">
     <tr>
         <th>#</th>
-        <th>Kategori</th>
         <th>Gönderen</th>
         <th>Email</th>
+        <th>Kategori</th>
         <th>Konu</th>
         <th>Mesaj</th>
         <th>Tarih</th>
@@ -32,6 +32,7 @@
 
             case "Teşekkür":
                 badgeClass = "badge bg-info"; // Hafif mavi, minnet ve teşekkür için yumuşak bir ton
+                
                 break;
             case "Öneri":
                 badgeClass = "badge bg-success"; // Yeşil, öneri ve olumlu geribildirim için uygun
@@ -63,11 +64,12 @@
 
         <tr>
             <td>@count</td>
-            <td><span class="@badgeClass p-2" style="color:white; font-size: small">@item.Category.CategoryName</span></td>
             <td>@item.NameSurname</td>
             <td>@item.Email</td>
+            <td><span class="@badgeClass p-2" style="color:white; font-size: small">@item.Category.CategoryName</span></td>
+
             <td>@item.Subject</td>
-            <
+
             <td>
                 @if (!string.IsNullOrEmpty(item.Message) && item.Message.Length > 30)
                 {

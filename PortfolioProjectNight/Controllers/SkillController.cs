@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList.Mvc;
 
 namespace PortfolioProjectNight.Controllers
 {
@@ -11,9 +13,9 @@ namespace PortfolioProjectNight.Controllers
     {
        DbMyPortfolioNightEntities context=new DbMyPortfolioNightEntities();
 
-        public ActionResult SkillList()
+        public ActionResult SkillList(int sayfa=1)
         {
-            var values=context.Skills.ToList();
+            var values=context.Skills.ToList().ToPagedList(sayfa,5);
             return View(values);
         }
 
@@ -44,6 +46,18 @@ namespace PortfolioProjectNight.Controllers
         {
             var value = context.Skills.Find(id);
             return View(value);
+        }
+        [HttpPost]
+        public ActionResult Update(Skills p1)
+        {
+            var yetenek = context.Skills.Find(p1.SkillsId);
+            yetenek.SkillsName = p1.SkillsName;
+            yetenek.Rate = p1.Rate;
+            yetenek.Icon = p1.Icon;
+            yetenek.Status = p1.Status;
+            context.SaveChanges();
+            return RedirectToAction("SkillList");
+
         }
 
     }

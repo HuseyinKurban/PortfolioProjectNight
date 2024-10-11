@@ -48,6 +48,7 @@
           </Key>
           <Property Name="EducationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="EducationDate" Type="nvarchar" MaxLength="50" />
           <Property Name="SubTitle" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -56,9 +57,10 @@
             <PropertyRef Name="ExperienceId" />
           </Key>
           <Property Name="ExperienceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="20" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+          <Property Name="Date" Type="nvarchar" MaxLength="50" />
           <Property Name="SubTitle" Type="nvarchar" MaxLength="50" />
-          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1000" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'DbMyPortfolioNight.dbo.Expertise' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -121,8 +123,9 @@ warning 6002: The table/view 'DbMyPortfolioNight.dbo.Feature' does not have a pr
           </Key>
           <Property Name="SocialMediaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="50" />
-          <Property Name="Url" Type="nvarchar" MaxLength="100" />
           <Property Name="Icon" Type="nvarchar" MaxLength="250" />
+          <Property Name="Status" Type="bit" />
+          <Property Name="Url" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -133,6 +136,26 @@ warning 6002: The table/view 'DbMyPortfolioNight.dbo.Feature' does not have a pr
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Testimonial">
+          <Key>
+            <PropertyRef Name="TestimonialID" />
+          </Key>
+          <Property Name="TestimonialID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Comment" Type="varchar" MaxLength="500" />
+          <Property Name="ImageUrl" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Work">
+          <Key>
+            <PropertyRef Name="WorkID" />
+          </Key>
+          <Property Name="WorkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="1000" />
+          <Property Name="ImageUrl" Type="varchar" MaxLength="1000" />
+          <Property Name="GithubUrl" Type="varchar" MaxLength="1000" />
         </EntityType>
         <Association Name="FK_Contact_Category">
           <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
@@ -158,6 +181,8 @@ warning 6002: The table/view 'DbMyPortfolioNight.dbo.Feature' does not have a pr
           <EntitySet Name="Skills" EntityType="Self.Skills" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SocialMedia" EntityType="Self.SocialMedia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Testimonial" EntityType="Self.Testimonial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Work" EntityType="Self.Work" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Expertise" EntityType="Self.Expertise" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Expertise].[ExpertiseId] AS [ExpertiseId], 
@@ -222,15 +247,17 @@ warning 6002: The table/view 'DbMyPortfolioNight.dbo.Feature' does not have a pr
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SubTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EducationDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Experience">
           <Key>
             <PropertyRef Name="ExperienceId" />
           </Key>
           <Property Name="ExperienceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="SubTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Profile">
           <Key>
@@ -264,15 +291,6 @@ warning 6002: The table/view 'DbMyPortfolioNight.dbo.Feature' does not have a pr
           <Property Name="Rate" Type="Byte" />
           <Property Name="Icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Status" Type="Boolean" />
-        </EntityType>
-        <EntityType Name="SocialMedia">
-          <Key>
-            <PropertyRef Name="SocialMediaId" />
-          </Key>
-          <Property Name="SocialMediaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Icon" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -323,7 +341,6 @@ warning 6002: The table/view 'DbMyPortfolioNight.dbo.Feature' does not have a pr
           <EntitySet Name="Profile" EntityType="Self.Profile" />
           <EntitySet Name="Service" EntityType="Self.Service" />
           <EntitySet Name="Skills" EntityType="Self.Skills" />
-          <EntitySet Name="SocialMedia" EntityType="Self.SocialMedia" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Expertise" EntityType="Self.Expertise" />
           <EntitySet Name="Feature" EntityType="Self.Feature" />
@@ -332,6 +349,9 @@ warning 6002: The table/view 'DbMyPortfolioNight.dbo.Feature' does not have a pr
             <End Role="Contact" EntitySet="Contact" />
           </AssociationSet>
           <EntitySet Name="Admin" EntityType="DbMyPortfolioNightModel.Admin" />
+          <EntitySet Name="SocialMedia" EntityType="DbMyPortfolioNightModel.SocialMedia" />
+          <EntitySet Name="Work" EntityType="DbMyPortfolioNightModel.Work" />
+          <EntitySet Name="Testimonial" EntityType="DbMyPortfolioNightModel.Testimonial" />
         </EntityContainer>
         <EntityType Name="Admin">
           <Key>
@@ -340,6 +360,36 @@ warning 6002: The table/view 'DbMyPortfolioNight.dbo.Feature' does not have a pr
           <Property Name="AdminId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SocialMedia">
+          <Key>
+            <PropertyRef Name="SocialMediaId" />
+          </Key>
+          <Property Name="SocialMediaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Icon" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Boolean" />
+          <Property Name="Url" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Work">
+          <Key>
+            <PropertyRef Name="WorkID" />
+          </Key>
+          <Property Name="WorkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="ImageUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="GithubUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Testimonial">
+          <Key>
+            <PropertyRef Name="TestimonialID" />
+          </Key>
+          <Property Name="TestimonialID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ImageUrl" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -382,6 +432,7 @@ warning 6002: The table/view 'DbMyPortfolioNight.dbo.Feature' does not have a pr
           <EntitySetMapping Name="Education">
             <EntityTypeMapping TypeName="DbMyPortfolioNightModel.Education">
               <MappingFragment StoreEntitySet="Education">
+                <ScalarProperty Name="EducationDate" ColumnName="EducationDate" />
                 <ScalarProperty Name="EducationId" ColumnName="EducationId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
@@ -392,6 +443,7 @@ warning 6002: The table/view 'DbMyPortfolioNight.dbo.Feature' does not have a pr
           <EntitySetMapping Name="Experience">
             <EntityTypeMapping TypeName="DbMyPortfolioNightModel.Experience">
               <MappingFragment StoreEntitySet="Experience">
+                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="ExperienceId" ColumnName="ExperienceId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
@@ -435,16 +487,6 @@ warning 6002: The table/view 'DbMyPortfolioNight.dbo.Feature' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SocialMedia">
-            <EntityTypeMapping TypeName="DbMyPortfolioNightModel.SocialMedia">
-              <MappingFragment StoreEntitySet="SocialMedia">
-                <ScalarProperty Name="SocialMediaId" ColumnName="SocialMediaId" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Url" ColumnName="Url" />
-                <ScalarProperty Name="Icon" ColumnName="Icon" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="DbMyPortfolioNightModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -482,6 +524,39 @@ warning 6002: The table/view 'DbMyPortfolioNight.dbo.Feature' does not have a pr
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="AdminId" ColumnName="AdminId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SocialMedia">
+            <EntityTypeMapping TypeName="DbMyPortfolioNightModel.SocialMedia">
+              <MappingFragment StoreEntitySet="SocialMedia">
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Icon" ColumnName="Icon" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="SocialMediaId" ColumnName="SocialMediaId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Work">
+            <EntityTypeMapping TypeName="DbMyPortfolioNightModel.Work">
+              <MappingFragment StoreEntitySet="Work">
+                <ScalarProperty Name="GithubUrl" ColumnName="GithubUrl" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="WorkID" ColumnName="WorkID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Testimonial">
+            <EntityTypeMapping TypeName="DbMyPortfolioNightModel.Testimonial">
+              <MappingFragment StoreEntitySet="Testimonial">
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TestimonialID" ColumnName="TestimonialID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,5 +1,8 @@
-﻿
-@model List<PortfolioProjectNight.Models.Skills>
+﻿﻿@using PortfolioProjectNight.Models
+@using PagedList
+@using PagedList.Mvc
+@model PagedList<Skills>
+
 
 @{
     ViewBag.Title = "SkillList";
@@ -30,4 +33,13 @@
     }
 
 </table>
+
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("SkillList", new { sayfa }), new PagedListRenderOptions
+{
+
+    LiElementClasses = new List<string> { "page-link" }
+
+})
+
+
 <a href="/Skill/CreateSkill/" class="btn btn-info">Yeni Yetenek Girişi</a>

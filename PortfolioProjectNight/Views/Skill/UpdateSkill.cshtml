@@ -1,4 +1,4 @@
-﻿
+﻿@model PortfolioProjectNight.Models.Skills
 @{
     ViewBag.Title = "UpdateSkill";
     Layout = "~/Views/Admin/Index.cshtml";
@@ -6,5 +6,33 @@
 
 <h2 class="mb-4">Yetenek Güncelleme Sayfası</h2>
 
+@using (Html.BeginForm("Update", "Skill", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.SkillsId, "Yetenek ID")
+        @Html.TextBoxFor(x => x.SkillsId, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.SkillsName, "Yetenek Adı")
+        @Html.TextBoxFor(x => x.SkillsName, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Rate, "Değer")
+        @Html.TextBoxFor(x => x.Rate, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Icon, "İcon")
+        @Html.TextBoxFor(x => x.Icon, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Status, "Durum")
+        @Html.DropDownListFor(x => x.Status, new List<SelectListItem>
+        {
+            new SelectListItem { Text = "Aktif", Value = "true" },
+            new SelectListItem { Text = "Pasif", Value = "false" }
+        }, new { @class = "form-control" })
 
+
+    </div>
+    <div>
+        <button class="btn btn-warning">Güncelle</button>
+
+    </div>
+}
 
