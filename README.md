@@ -35,7 +35,7 @@ M&Y Yazılım Eğitim Akademi Danışmanlık bünyesinde, Murat Yücedağ hocam�
 
 
 ##  Admin Paneli
-![image](https://github.com/user-attachments/assets/2d2300a3-473f-4e92-a1bc-fcb3e558feb2)
+![sa](https://github.com/user-attachments/assets/9dfdef4a-5491-4376-aa50-73efb7a1879c)
 ![image](https://github.com/user-attachments/assets/354e4421-2e9f-4369-9732-188686271e2e)
 ![image](https://github.com/user-attachments/assets/ddf193a2-9850-4697-9bd3-edb2ad8a8bab)
 ![image](https://github.com/user-attachments/assets/fc33bbb5-222e-488d-ac91-f8081e8ebf63)
